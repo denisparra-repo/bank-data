@@ -1,0 +1,93 @@
+
+<div class="container">
+    <div class="card">
+        <h2 class="title">{{ 'CREATE_FORM.TITLE' | translate }}</h2>
+        <form [formGroup]="form" id="productForm">
+            <div class="form-row">
+                <div class="form-group">
+                  <label for="id">{{ 'CREATE_FORM.FIELDS.ID.TITLE' | translate }}</label>
+                  <input type="text" id="productId" name="id" [class.error]="form.get('id')?.errors" formControlName="id" />
+                  @if(form.get('id')!.errors && form.get('id')!.hasError('required')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.ID.REQUIRED_ERROR' | translate }}</span>
+                  }
+                  @if(form.get('id')!.errors && form.get('id')!.hasError('minlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MINIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                  @if(form.get('id')!.errors && form.get('id')!.hasError('maxlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MAXIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                  @if(form.get('id')!.errors && form.get('id')!.hasError('asyncInvalid')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.ID.EXISTENT_ID_ERROR' | translate }}</span>
+                  }  
+                </div>
+                <div class="form-group">
+                  <label for="name">{{ 'CREATE_FORM.FIELDS.NAME.TITLE' | translate }}</label>
+                  <input type="text" id="productName" name="name" [class.error]="form.get('name')?.errors" formControlName="name" />
+                  @if(form.get('name')!.errors && form.get('name')!.hasError('required')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.NAME.REQUIRED_ERROR' | translate }}</span>
+                  }
+                  @if(form.get('name')!.errors && form.get('name')!.hasError('minlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MINIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                  @if(form.get('name')!.errors && form.get('name')!.hasError('maxlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MAXIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                  <label for="description">{{ 'CREATE_FORM.FIELDS.DESCRIPTION.TITLE' | translate }}</label>
+                  <textarea type="text" id="productDescription" name="description" [class.error]="form.get('description')?.errors" formControlName="description" ></textarea>
+                  @if(form.get('description')!.errors && form.get('description')!.hasError('required')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.DESCRIPTION.REQUIRED_ERROR' | translate }}</span>
+                  }
+                  @if(form.get('description')!.errors && form.get('description')!.hasError('minlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MINIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                  @if(form.get('description')!.errors && form.get('description')!.hasError('maxlength')) {
+                    <span class="error-message">{{ 'CREATE_FORM.COMMON_ERRORS.MAXIMUM_LENGTH_ERROR' | translate }}</span>
+                  } 
+                </div>
+                <div class="form-group">
+                  <label for="logo">{{ 'CREATE_FORM.FIELDS.LOGO.TITLE' | translate }}</label>
+                  <input type="url" id="productLogo" name="logo" [class.error]="form.get('logo')?.errors" formControlName="logo"/>
+                  @if(form.get('logo')!.errors && form.get('logo')!.hasError('required')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.LOGO.REQUIRED_ERROR' | translate }}</span>
+                  }
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                  <label for="productDateRelease">{{ 'CREATE_FORM.FIELDS.LIBERATION_DATE.TITLE' | translate }}</label>
+                  <input type="date" id="productDateRelease" name="productDateRelease" [class.error]="form.get('date_release')?.errors" formControlName="date_release" (change)="changeDate()" required/>
+                  @if(form.get('date_release')!.errors && form.get('date_release')!.hasError('required')) {
+                    <span class="error-message">{{ 'CREATE_FORM.FIELDS.LIBERATION_DATE.REQUIRED_ERROR' | translate }}</span>
+                  }
+                </div>
+                <div class="form-group">
+                  <label for="productDateRevision">{{ 'CREATE_FORM.FIELDS.RECOVERY_DATE.TITLE' | translate }}</label>
+                  <input type="date" id="productDateRevision"  name="productDateRevision" formControlName="date_revision"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <button class="reset" (click)="openModal($event)">{{ 'CREATE_FORM.RESET_BUTTON' | translate }}</button> 
+                </div>
+                <div class="form-group">
+                    <button class="save" (click)="saveData($event)" [disabled]="form.invalid">{{ 'CREATE_FORM.SAVE_BUTTON' | translate }}</button>
+                </div>
+            </div>
+             
+            
+        </form>
+    </div>
+    <div id="resetConfirmation" class="modal">
+       <div class="modal-content">
+          <p>{{ 'CREATE_FORM.RESET_MODAL.MESSAGE' | translate }} {{form.get('name')!.value}}</p>
+          <div class="modal-footer">
+            <button id="confirmReset" (click)="reset()">{{ 'CREATE_FORM.RESET_MODAL.YES_BUTTON' | translate }}</button>
+            <button id="cancelReset" (click)="hideModal()">{{ 'CREATE_FORM.RESET_MODAL.CANCEL_BUTTON' | translate }}</button>
+          </div>
+       </div>
+    </div>
+</div>

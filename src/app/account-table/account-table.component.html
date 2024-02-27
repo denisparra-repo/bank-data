@@ -1,0 +1,56 @@
+<div class="search-container">
+  <input type="text" id="searchInput" [placeholder]="'TABLE_PRODUCTS.SEARCH_PLACEHOLDER' | translate" (change)="onChange($event)" />
+  <button [routerLink]="['/product']" class="create-button">{{ 'TABLE_PRODUCTS.CREATE_BUTTON' | translate }}</button>
+</div>
+
+<div class="container">
+  <div class="card">
+    <table>
+      <tr>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.LOGO' | translate }}</th>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.NAME' | translate }}</th>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.DESCRIPTION' | translate }}</th>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.LIBERATION_DATE' | translate }}</th>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.RECOVERY_DATE' | translate }}</th>
+        <th>{{ 'TABLE_PRODUCTS.COLUMNS.ACTIONS' | translate }}</th>
+      </tr>
+      <tr *ngFor="let product of products"> 
+          <td>
+              <img [src]="product.logo" height="50" width="50"/>
+          </td>
+          <td>{{product.name}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.date_release | date: 'MM/dd/yyyy'}}</td>
+          <td>{{product.date_revision | date: 'MM/dd/yyyy'}}</td>
+          <td class="actions-cell">
+             <div class="actions-menu" (click)="openMenu($event)">
+               <i class="fas fa-ellipsis-h"></i>
+               <div class="action-submenu">
+                  <button (click)="edit()">{{ 'TABLE_PRODUCTS.ACTIONS.EDIT' | translate }}</button>
+                  <button (click)="remove()">{{ 'TABLE_PRODUCTS.ACTIONS.REMOVE' | translate }}</button>
+               </div> ...
+             </div>
+          </td>
+      </tr>
+      <tfoot>
+       <tr>
+        <td [attr.colspan]="6">
+          <div class="search-container">
+            <span id="resultCount" class="left">{{total}} {{'TABLE_PRODUCTS.TABLE_RESULTS' | translate}}</span>
+            <div class="dropdown-warpper">
+              <select id="resultPerPage" (change)="changeNumberOfRows($event)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+             </select>
+            </div>
+          </div>
+          
+        </td>
+       </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+

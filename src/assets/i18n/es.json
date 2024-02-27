@@ -1,0 +1,52 @@
+{
+    "TABLE_PRODUCTS": {
+        "SEARCH_PLACEHOLDER": "Busar",
+        "COLUMNS": {
+            "LOGO": "Logo",
+            "NAME": "Nombre del Producto",
+            "DESCRIPTION": "Descripcion",
+            "LIBERATION_DATE": "Fecha de Liberacion",
+            "RECOVERY_DATE": "Fecha de Recuperacion",
+            "ACTIONS": "Acciones"
+        },
+        "TABLE_RESULTS": "Resultados",
+        "CREATE_BUTTON": "Crear"
+    },
+    "CREATE_FORM": {
+        "TITLE": "Formulario de Registro",
+        "FIELDS": {
+            "ID": {
+                "TITLE": "ID",
+                "REQUIRED_ERROR": "ID Requerido",
+                "EXISTENT_ID_ERROR": "Este ID ya existe"
+            },
+            "NAME": {
+                "TITLE": "Nombre",
+                "REQUIRED_ERROR": "Nombre Requerido"
+            },
+            "DESCRIPTION": {
+                "TITLE": "Descripcion",
+                "REQUIRED_ERROR": "Descripcion requerida"
+            },
+            "LOGO": {
+                "TITLE": "Logo",
+                "REQUIRED_ERROR": "Logo Requerido"
+            },
+            "LIBERATION_DATE": {
+                "TITLE": "Fecha de Liberacion",
+                "REQUIRED_ERROR": "Fecha de Liberacion Requerido"
+            }
+        },
+        "COMMON_ERRORS": {
+            "MINIMUM_LENGTH_ERROR": "El tamanio es menor al esperado",
+            "MAXIMUM_LENGTH_ERROR": "El tamanio es mayor al esperado"
+        },
+        "SAVE_BUTTON": "Guardar",
+        "RESET_BUTTON": "Reiniciar",
+        "RESET_MODAL": {
+            "MESSAGE": "Esta seguro de resetear el formulario ?",
+            "YES_BUTTON": "Si",
+            "CANCEL_BUTTON": "Cancelar"
+        }
+    }
+}

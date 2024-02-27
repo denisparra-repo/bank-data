@@ -1,0 +1,59 @@
+{
+    "TABLE_PRODUCTS": {
+        "SEARCH_PLACEHOLDER": "Search",
+        "COLUMNS": {
+            "LOGO": "Logo",
+            "NAME": "Product Name",
+            "DESCRIPTION": "Description",
+            "LIBERATION_DATE": "Liberation Date",
+            "RECOVERY_DATE": "Recovery Date",
+            "ACTIONS": "Actions"
+        },
+        "TABLE_RESULTS": "Results",
+        "CREATE_BUTTON": "Create",
+        "ACTIONS": {
+            "EDIT": "Edit",
+            "REMOVE": "Remove"
+        }
+    },
+    "CREATE_FORM": {
+        "TITLE": "Register Form",
+        "FIELDS": {
+            "ID": {
+                "TITLE": "ID",
+                "REQUIRED_ERROR": "ID Required",
+                "EXISTENT_ID_ERROR": "This ID already exist"
+            },
+            "NAME": {
+                "TITLE": "Name",
+                "REQUIRED_ERROR": "Name Required"
+            },
+            "DESCRIPTION": {
+                "TITLE": "Description",
+                "REQUIRED_ERROR": "Description Required"
+            },
+            "LOGO": {
+                "TITLE": "Logo",
+                "REQUIRED_ERROR": "Logo Required"
+            },
+            "LIBERATION_DATE": {
+                "TITLE": "Liberation Date",
+                "REQUIRED_ERROR": "Liberation Date Required"
+            },
+            "RECOVERY_DATE": {
+                "TITLE": "Recovery Date"
+            }
+        },
+        "COMMON_ERRORS": {
+            "MINIMUM_LENGTH_ERROR": "The length is lower than expected",
+            "MAXIMUM_LENGTH_ERROR": "The length is more than expected"
+        },
+        "SAVE_BUTTON": "Save",
+        "RESET_BUTTON": "Reset",
+        "RESET_MODAL": {
+            "MESSAGE": "Are you sure to reset this form ?",
+            "YES_BUTTON": "Yes",
+            "CANCEL_BUTTON": "Cancel"
+        }
+    }
+}
